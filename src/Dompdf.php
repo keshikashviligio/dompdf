@@ -264,13 +264,17 @@ class Dompdf
         "symbol", "zapfdinbats"
     );
 
+    public $fixArabicCharacters = false;
+
     /**
      * Class constructor
      *
      * @param array|Options $options
      */
-    public function __construct($options = null)
+    public function __construct($options = null, $fixArabicCharacters = false)
     {
+        $this->fixArabicCharacters = $fixArabicCharacters;
+
         mb_internal_encoding('UTF-8');
 
         if (version_compare(PHP_VERSION, '7.0.0') >= 0)
